@@ -15,8 +15,6 @@ class Personagem():
         self.classe = None
         self.dado = Dado(6)
         
-    # def habilidades_raca(): ?
-
     # ===== INFORMAÇÕES =====
     def exibir_atributos(self):
             print('\n======= SEUS ATRIBUTOS =======')
