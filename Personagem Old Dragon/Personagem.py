@@ -115,7 +115,7 @@ class Personagem():
                 try:
                     escolha = (input('>> '))
                 except Exception as e:
-                    print('>> |ERRO {e}| Tente novamente: ')
+                    print(f'>> |ERRO {e}| Tente novamente: ')
                     continue
 
                 if escolha in dicionario_atributos and escolha not in escolhidos:
