@@ -67,11 +67,6 @@ class Personagem():
                 acumulado += self.dado.rolar()
             valores_gerados.append(acumulado)
 
-        atributos = ['forca', 'destreza', 'constituicao', 'inteligencia', 'sabedoria', 'carisma']
-
-        for nome, valor in zip(atributos, valores_gerados):
-            setattr(self, nome, valor)
-            
         limpar_tela()    
         self.distribuir_atributos(valores_gerados)
 
