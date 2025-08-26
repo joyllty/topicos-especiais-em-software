@@ -35,7 +35,6 @@ class Clerigo(Classe):
             self.magias_divinas[1] = 4
             self.magias_divinas[3] = 3
     
-        
 
     def exibir_habilidades_classe(self):
         print('\n=================== HABILIDADES DE CLASSE ===================')
