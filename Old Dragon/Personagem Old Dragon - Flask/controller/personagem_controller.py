@@ -16,7 +16,6 @@ def criar_personagem():
 
     # ===== distribuição manual (aventureiro ou heroico) =====
     if "valor_0" in request.form:
-        # Reconstruir personagem a partir de hidden inputs -> quando chegava na distribuição, como são POST's independentes, o personagem era criado de novo e retornava nulo 
         personagem = Personagem()
         personagem.nome = request.form.get("nome")
         raca = request.form.get("raca")
@@ -40,7 +39,7 @@ def criar_personagem():
 
         personagem.distribuir_atributos(distribuicao)
 
-        salvar_personagem(personagem.to_dict())
+        salvar_personagem(personagem)
 
         return render_template(
             "criar_personagem.html",
@@ -64,7 +63,8 @@ def criar_personagem():
 
         if estilo == "classico":
             personagem.estilo_classico()
-            salvar_personagem(personagem.to_dict())
+            salvar_personagem(personagem)
+            
             return render_template(
                 "criar_personagem.html",
                 personagem=personagem,

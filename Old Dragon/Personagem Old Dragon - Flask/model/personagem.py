@@ -58,17 +58,3 @@ class Personagem:
             if hasattr(self, attr):
                 setattr(self, attr, valor)
 
-    # ======= EXPORTAR PRO JSON =======
-    def to_dict(self):
-        return {
-            "nome": self.nome,
-            "forca": self.forca,
-            "destreza": self.destreza,
-            "constituicao": self.constituicao,
-            "inteligencia": self.inteligencia,
-            "sabedoria": self.sabedoria,
-            "carisma": self.carisma,
-            "raca": self.raca.__class__.__name__ if self.raca else None,
-            "classe": self.classe.__class__.__name__ if self.classe else None,
-            "valores_gerados": self.valores_gerados
-        }

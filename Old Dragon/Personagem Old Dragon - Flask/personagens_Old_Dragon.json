@@ -1,0 +1,40 @@
+[
+    {
+        "nome": "bruna",
+        "forca": 17,
+        "destreza": 13,
+        "constituicao": 12,
+        "inteligencia": 13,
+        "sabedoria": 18,
+        "carisma": 13,
+        "raca": "Elfo",
+        "classe": "Necromante",
+        "valores_gerados": [
+            13,
+            13,
+            17,
+            18,
+            13,
+            12
+        ]
+    },
+    {
+        "nome": "matheus",
+        "forca": 8,
+        "destreza": 9,
+        "constituicao": 13,
+        "inteligencia": 8,
+        "sabedoria": 6,
+        "carisma": 10,
+        "raca": "Humano",
+        "classe": "Druida",
+        "valores_gerados": [
+            8,
+            9,
+            13,
+            8,
+            6,
+            10
+        ]
+    }
+]
