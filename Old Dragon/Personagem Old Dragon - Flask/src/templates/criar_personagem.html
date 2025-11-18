@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Personagem</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Criar Personagem</h1>
+
+    {% if etapa == "inicial" %}
+        <form method="POST">
+            <label>Nome:</label>
+            <input type="text" name="nome" required><br><br>
+
+            <label>Raça:</label>
+            <select name="raca" required>
+                <option value="Humano">Humano</option>
+                <option value="Elfo">Elfo</option>
+                <option value="Anao">Anão</option>
+            </select><br><br>
+
+            <label>Classe:</label>
+            <select name="classe" required>
+                <option value="Necromante">Necromante</option>
+                <option value="Paladino">Paladino</option>
+                <option value="Druida">Druida</option>
+            </select><br><br>
+
+            <label>Estilo de atributos:</label>
+            <select name="estilo" required>
+                <option value="classico">Clássico</option>
+                <option value="aventureiro">Aventureiro</option>
+                <option value="heroico">Heróico</option>
+            </select><br><br>
+
+            <button type="submit">Avançar</button>
+        </form>
+    {% endif %}
+
+    {% if etapa == "distribuir" %}
+        <h2>Distribua os atributos</h2>
+        <form method="POST">
+            <!-- Hidden inputs para manter personagem entre páginas -->
+            <input type="hidden" name="nome" value="{{ hidden_nome }}">
+            <input type="hidden" name="raca" value="{{ hidden_raca }}">
+            <input type="hidden" name="classe" value="{{ hidden_classe }}">
+            <input type="hidden" name="estilo" value="{{ hidden_estilo }}">
+            <input type="hidden" name="valores_gerados" value="{{ valores|join(',') }}">
+
+            {% for i in range(valores|length) %}
+                <label>Valor {{ valores[i] }} → </label>
+                <select name="valor_{{ i }}" required>
+                    <option value="">Escolha...</option>
+                    {% for attr in atributos %}
+                        <option value="{{ attr }}">{{ attr|capitalize }}</option>
+                    {% endfor %}
+                </select><br><br>
+            {% endfor %}
+
+            <button type="submit">Finalizar</button>
+        </form>
+    {% endif %}
+
+    {% if etapa == "exibir" %}
+        <h2>Personagem Criado</h2>
+        <p><strong>Nome:</strong> {{ personagem.nome }}</p>
+        <p><strong>Raça:</strong> {{ personagem.raca.__class__.__name__ }}</p>
+        <p><strong>Classe:</strong> {{ personagem.classe.__class__.__name__ }}</p>
+
+        <h3>Atributos</h3>
+        <ul>
+            <li>Força: {{ personagem.forca }}</li>
+            <li>Destreza: {{ personagem.destreza }}</li>
+            <li>Constituição: {{ personagem.constituicao }}</li>
+            <li>Inteligência: {{ personagem.inteligencia }}</li>
+            <li>Sabedoria: {{ personagem.sabedoria }}</li>
+            <li>Carisma: {{ personagem.carisma }}</li>
+        </ul>
+
+        <h3>Habilidades da Classe</h3>
+        <ul>
+            {% for hab in habilidades_classe %}
+                <li>{{ hab }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Habilidades da Raça</h3>
+        <ul>
+            {% for hab in habilidades_raca %}
+                <li>{{ hab }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,59 @@
+[
+    {
+        "nome": "bruna",
+        "forca": 8,
+        "destreza": 7,
+        "constituicao": 7,
+        "inteligencia": 14,
+        "sabedoria": 10,
+        "carisma": 17,
+        "raca": "Humano",
+        "classe": "Necromante",
+        "valores_gerados": [
+            8,
+            7,
+            7,
+            14,
+            10,
+            17
+        ]
+    },
+    {
+        "nome": "matheus",
+        "forca": 11,
+        "destreza": 13,
+        "constituicao": 7,
+        "inteligencia": 10,
+        "sabedoria": 6,
+        "carisma": 14,
+        "raca": "Elfo",
+        "classe": "Druida",
+        "valores_gerados": [
+            11,
+            13,
+            7,
+            10,
+            6,
+            14
+        ]
+    },
+    {
+        "nome": "joy",
+        "forca": 12,
+        "destreza": 17,
+        "constituicao": 17,
+        "inteligencia": 8,
+        "sabedoria": 10,
+        "carisma": 11,
+        "raca": "Anao",
+        "classe": "Necromante",
+        "valores_gerados": [
+            12,
+            17,
+            17,
+            8,
+            10,
+            11
+        ]
+    }
+]

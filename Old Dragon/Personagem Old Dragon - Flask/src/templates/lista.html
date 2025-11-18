@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Personagens Criados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Lista de Personagens</h1>
+
+    {% if personagens %}
+        <ul>
+            {% for p in personagens %}
+                <li>
+                    <strong>{{ p.nome }}</strong> - 
+                    Raça: {{ p.raca }} | Classe: {{ p.classe }}
+                    <br>
+                    Atributos:
+                    Força {{ p.forca }}, Destreza {{ p.destreza }}, Constituição {{ p.constituicao }},
+                    Inteligência {{ p.inteligencia }}, Sabedoria {{ p.sabedoria }}, Carisma {{ p.carisma }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum personagem foi criado ainda.</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('personagem.criar_personagem') }}">Criar novo personagem</a></p>
+    <p><a href="{{ url_for('home') }}">Voltar à página inicial</a></p>
+</body>
+</html>
